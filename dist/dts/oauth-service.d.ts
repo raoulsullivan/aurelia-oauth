@@ -8,6 +8,7 @@ export interface OAuthConfig {
     clientId: string;
     logoutRedirectParameterName?: string;
     scope?: string;
+    resource?: string;
     state?: string;
     redirectUri?: string;
     alwaysRequireLogin?: boolean;
@@ -33,6 +34,6 @@ export declare class OAuthService {
     private getTokenDataFromUrl;
     private getBaseRouteUrl;
     private getSimpleNonceValue;
-    private getRedirectUrl();
-    private setAutomaticTokenRenewal();
+    private getRedirectUrl;
+    private setAutomaticTokenRenewal;
 }

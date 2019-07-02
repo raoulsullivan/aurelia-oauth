@@ -14,6 +14,7 @@ export interface OAuthConfig {
     clientId: string;
     logoutRedirectParameterName?: string;
     scope?: string;
+    resource?: string;
     state?: string;
     redirectUri?: string;
     alwaysRequireLogin?: boolean;
@@ -42,6 +43,7 @@ export class OAuthService {
             clientId: null,
             logoutRedirectParameterName: 'post_logout_redirect_uri',
             scope: null,
+            resource: null,
             state: null,
             alwaysRequireLogin: false,
             autoTokenRenewal: true
@@ -175,6 +177,10 @@ export class OAuthService {
 
         if (this.config.scope) {
             redirectUrl += `&scope=${encodeURIComponent(this.config.scope)}`;
+        }
+
+        if (this.config.resource) {
+            redirectUrl += `&resource=${encodeURIComponent(this.config.resource)}`;
         }
 
         if (this.config.state) {
